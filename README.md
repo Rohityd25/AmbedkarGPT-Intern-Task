@@ -1,25 +1,66 @@
-# AmbedkarGPT – Text Retrieval and Question Answering
+# 📘 AmbedkarGPT – Text Retrieval & Question Answering
 
-This project is a console-based application that loads a text file, splits it into small segments, stores the segments in a vector database, and answers queries based on the stored content. The program retrieves the most relevant text pieces and generates answers strictly from the provided context.
-
-The system uses:
-- LangChain for text loading, splitting, and retrieval
-- HuggingFace sentence embeddings
-- ChromaDB for vector storage
-- Ollama (Mistral model) for generating responses
-- A local text file named `speech.txt` as the source material
+AmbedkarGPT is a command-line application that processes a text file, stores its content in a vector database, and answers user queries based strictly on that content.  
+It uses sentence embeddings, ChromaDB, and the Mistral model (via Ollama) to retrieve the most relevant information.
 
 ---
 
-## How It Works
+## 🚀 Features
 
-1. The project checks if a Chroma database already exists.
-2. If not, it loads `speech.txt`, splits the content into chunks, and creates embeddings.
-3. The embeddings are stored inside a local folder named `chroma_db`.
-4. The user can type questions in the console.
-5. The system retrieves the most relevant text chunks and answers based only on them.
+- Loads and processes `speech.txt`
+- Splits text into manageable chunks
+- Creates vector embeddings using HuggingFace
+- Stores and retrieves text using ChromaDB
+- Answers user queries strictly from retrieved context
+- Runs completely through the terminal
 
 ---
 
-## Project Structure
+## 📂 Project Structure
+
+.
+├── main.py
+├── speech.txt
+├── requirements.txt
+└── README.md
+
+The folder `chroma_db/` will be created automatically on the first run.
+
+##  Installation
+
+### 1️⃣ Install Python dependencies
+
+pip install -r requirements.txt
+
+### 2️⃣ Install Ollama (required for the Mistral model)
+
+Download from:  
+https://ollama.com/
+
+Then pull the model:
+
+ollama pull mistral
+---
+
+## ▶️ Usage
+
+Run the application:
+
+python main.py
+
+You can now type questions related to the content of `speech.txt`.
+
+To exit:
+
+exit
+
+---
+
+## 📝 Notes
+
+- The application answers **only** from the information available in `speech.txt`.
+- If the vector database does not exist, it will be created automatically.
+- The program uses local embeddings and local model inference (via Ollama).
+
+---
 
